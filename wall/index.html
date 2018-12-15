@@ -12,7 +12,7 @@
     <script>
         $(document).ready(function () {
             console.log("ready!");
-            $.get("https://app-wall.herokuapp.com/screen", function (data) {
+            $.get("/screen", function (data) {
                 console.log("Load was performed.");
                 if (data != null) {
                     var imageSrc = "data:image/png;base64," + data[0].data;
