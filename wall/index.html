@@ -14,7 +14,8 @@
             console.log("ready!");
             $.get("https://app-wall.herokuapp.com/screen", function (data) {
                 console.log("Load was performed.");
-                if (data != undefined && data[0].data!=undefined) {
+                if (data != undefined ) {
+                    if(data.length>0)
                     var imageSrc = "data:image/png;base64," + data[0].data;
                     $("#image").attr("src", imageSrc);
 
