@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <img id="image"/>
+    </div>
+    <script>
+        // A $( document ).ready() block.
+        $(document).ready(function () {
+            console.log("ready!");
+
+            $.get("http://localhost:5000/screen", function (data) {
+
+                console.log("Load was performed.", data[0].data);
+                console.log("Load was performed.");
+                var imageSrc = "data:image/png;base64," + data[0].data;
+                $("#image").attr("src", imageSrc);
+                setTimeout(function () {
+                    window.location.reload(); 
+                }, 6000);
+            });
+        });</script>
+</body>
+
+</html>
