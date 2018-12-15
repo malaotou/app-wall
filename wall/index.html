@@ -7,21 +7,20 @@
 
 <body>
     <div>
-        <img id="image"/>
+        <img id="image" />
     </div>
     <script>
-        // A $( document ).ready() block.
         $(document).ready(function () {
             console.log("ready!");
-
             $.get("https://app-wall.herokuapp.com/screen", function (data) {
-
-                console.log("Load was performed.", data[0].data);
                 console.log("Load was performed.");
-                var imageSrc = "data:image/png;base64," + data[0].data;
-                $("#image").attr("src", imageSrc);
+                if (data != null) {
+                    var imageSrc = "data:image/png;base64," + data[0].data;
+                    $("#image").attr("src", imageSrc);
+
+                }
                 setTimeout(function () {
-                    //window.location.reload(); 
+                    window.location.reload(); 
                 }, 6000);
             });
         });</script>
